@@ -60,7 +60,7 @@ The Easiest Way to Deploy This Bot is Via Heroku.
 	<br>
 	<b>
 The Unlimited Dyons to Deploy This Bot is Via Railway.
-		In Order To deploy, You Just Have Fill The Necessary Environment Variables and Done!</b>
+		In Order To deploy, You Just add The Variables Manually in Railway and Done!</b>
 	
   <h1>
     <p align="center">
