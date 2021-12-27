@@ -3,7 +3,7 @@
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html) [![DeepSource](https://static.deepsource.io/deepsource-badge-light-mini.svg)](https://deepsource.io/gh/Hodacka/NekoRobot/?ref=repository-badge)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/41ee9ac813a34042925a6b6fa92cf84e)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AmaanAhmed/Lynda&amp;utm_campaign=Badge_Grade) [![Join Support!](https://img.shields.io/badge/Join%20Channel-!-red)](https://t.me/NekoXSupport) [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity) [![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Hodacka/NekoRobot/graphs/contributors/)
 
-A modular telegram Python bot running on python3 with an sqlalchemy, Redis, mongodb database.
+A modular telegram Python bot running on python3 with an sqlalchemy, mongodb database.
 
 ###  ╒═══「 Status 」
 
