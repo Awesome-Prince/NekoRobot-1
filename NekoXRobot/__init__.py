@@ -122,7 +122,7 @@ if ENV:
             "Your blacklisted chats list does not contain valid integers.")
 
 else:
-    from KURUMIBOT.config import Development as Config
+    from NekoXRobot.config import Development as Config
     TOKEN = Config.TOKEN
 
     try:
@@ -215,6 +215,11 @@ pgram = Client(
     api_hash=API_HASH,
     bot_token=TOKEN,
 )
+
+# Credits Logger
+print("[NekoXRobot] NekoXRobot Is Starting. | Yūki • Black Knights Union Project | Licensed Under GPLv3.")
+print("[NekoXRobot] owo! Successfully Connected With A  Yūki • Data Center • Mumbai")
+print("[NekoXRobot] Project Maintained By: github.com/Hodacka (t.me/Horimaya)")
 
 #install aiohttp session
 print("[NekoXRobot]: Initializing AIOHTTP Session")
