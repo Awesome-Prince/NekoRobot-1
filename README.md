@@ -9,7 +9,7 @@ A modular telegram Python bot running on python3 with an sqlalchemy, mongodb dat
 
 + [x] Maintained
 + [x] Support Group Included
-+ [x] Free
++ [] Free
 + [x] OpenSourced
 + [x] Working Instance Available
 + [x] Clean Code
