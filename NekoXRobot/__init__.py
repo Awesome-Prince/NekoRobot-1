@@ -207,7 +207,6 @@ if not SPAMWATCH_API:
 else:
     sw = spamwatch.Client(SPAMWATCH_API)
 
-ubot = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 session_name = TOKEN.split(":")[0]
 pgram = Client(
     session_name,
