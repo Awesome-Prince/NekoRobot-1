@@ -277,4 +277,4 @@ from KURUMIBOT.modules.helper_funcs.handlers import (CustomCommandHandler,
 # make sure the regex handler can take extra kwargs
 tg.RegexHandler = CustomRegexHandler
 tg.CommandHandler = CustomCommandHandler
-tg.MessageHandler = CustomMessageHandler
+tg.MessageHandler = CustomMessageHandle
