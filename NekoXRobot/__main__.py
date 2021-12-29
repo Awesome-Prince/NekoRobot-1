@@ -58,7 +58,7 @@ PM_START_TEXT = """
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ✧ *Uptime:* `{}`
 ✧ `{}` *users, across* `{}` *chats.*
-✧ *thnx to @NekoXRobot for neko robot repo*
+✧ *thanks to @NekoXRobot for neko robot repo*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
 ➢ Try The Help Buttons Below To Know My Abilities ✘
 """
