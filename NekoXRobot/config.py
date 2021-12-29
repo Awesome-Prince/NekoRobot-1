@@ -18,6 +18,8 @@ class Config(object):
     API_ID = 77777  # integer value, dont use ""
     API_HASH = "8888"
     TOKEN = "TOKEN"  #This var used to be API_KEY but it is now TOKEN, adjust accordingly.
+    BOT_NAME = "Neko Robot"
+    BOT_USERNAME = "NekoXRobot"
     OWNER_ID = 769830161 # If you dont know, run the bot and do /id in your private chat with it, also an integer
     OWNER_USERNAME = "Horimaya"
     SUPPORT_CHAT = 'NekoXSupport'  #Your own group for support, do not add the @
@@ -31,6 +33,11 @@ class Config(object):
     WEBHOOK = False
     INFOPIC = True
     URL = None
+    ARQ_API_URL = "https://thearq.tech/"
+    ARQ_API_KEY = None
+    REM_BG_API_KEY = ""
+    OPENWEATHERMAP_ID = ""
+    LOG_GROUP_ID = ""
     SPAMWATCH_API = ""  # go to support.spamwat.ch to get key
     SPAMWATCH_SUPPORT_CHAT = "@SpamWatchSupport"
 
