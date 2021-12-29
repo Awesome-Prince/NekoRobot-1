@@ -60,6 +60,7 @@ PM_START_TEXT = """
 ✧ `{}` *users, across* `{}` *chats.*
 ✧ *thanks to @NekoXRobot for neko robot repo*
 ➖➖➖➖➖➖➖➖➖➖➖➖➖
+➢ Repo Credits : [Repo](https://GitHub.com/Hodacka/NekoRobot)
 ➢ Try The Help Buttons Below To Know My Abilities ✘
 """
 
