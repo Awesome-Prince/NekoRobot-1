@@ -9,6 +9,7 @@ import telegram.ext as tg
 from redis import StrictRedis
 from pyrogram import Client, errors
 from telethon.sessions import StringSession
+from pymongo import MongoClient
 from telethon import TelegramClient
 from aiohttp import ClientSession
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
