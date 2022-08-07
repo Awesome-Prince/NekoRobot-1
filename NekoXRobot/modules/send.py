@@ -3,7 +3,6 @@ from telegram.ext import run_async
 from NekoXRobot import dispatcher
 from NekoXRobot.modules.disable import DisableAbleCommandHandler
 from NekoXRobot.modules.helper_funcs.alternate import send_message
-from NekoXRobot.modules.helper_funcs.chat_status import user_admin
 
 
 @run_async

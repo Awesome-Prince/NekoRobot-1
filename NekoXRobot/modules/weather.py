@@ -1,16 +1,13 @@
-from NekoXRobot import telethn as tbot
 import io
-import os
 import time
 
 import aiohttp
 from telethon import *
-from telethon.tl import functions
-from telethon.tl import types
+from telethon.tl import functions, types
 from telethon.tl.types import *
 
 from NekoXRobot import *
-
+from NekoXRobot import telethn as tbot
 from NekoXRobot.events import register
 
 

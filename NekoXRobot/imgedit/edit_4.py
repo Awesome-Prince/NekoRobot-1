@@ -5,9 +5,9 @@ import shutil
 import cv2
 import numpy as np
 import requests
+from KURUMIBOT import REM_BG_API_KEY
 from PIL import Image, ImageDraw, ImageOps
 
-from KURUMIBOT import REM_BG_API_KEY
 
 async def rotate_90(client, message):
     try:

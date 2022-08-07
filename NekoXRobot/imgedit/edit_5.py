@@ -1,8 +1,7 @@
 import asyncio
-
 import os
-
 import shutil
+
 
 async def normalglitch_1(client, message):
 
@@ -21,15 +20,11 @@ async def normalglitch_1(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -37,9 +32,7 @@ async def normalglitch_1(client, message):
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "1"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -73,14 +66,13 @@ async def normalglitch_1(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def normalglitch_2(client, message):
 
@@ -99,15 +91,11 @@ async def normalglitch_2(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -115,9 +103,7 @@ async def normalglitch_2(client, message):
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "2"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -151,14 +137,13 @@ async def normalglitch_2(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def normalglitch_3(client, message):
 
@@ -177,15 +162,11 @@ async def normalglitch_3(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -193,9 +174,7 @@ async def normalglitch_3(client, message):
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "3"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -229,14 +208,13 @@ async def normalglitch_3(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def normalglitch_4(client, message):
 
@@ -255,15 +233,11 @@ async def normalglitch_4(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -271,9 +245,7 @@ async def normalglitch_4(client, message):
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "4"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -307,14 +279,13 @@ async def normalglitch_4(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def normalglitch_5(client, message):
 
@@ -333,15 +304,11 @@ async def normalglitch_5(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -349,9 +316,7 @@ async def normalglitch_5(client, message):
             cd = ["glitch_this", "-c", "-o", edit_img_loc, download_location, "5"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -385,14 +350,13 @@ async def normalglitch_5(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def scanlineglitch_1(client, message):
 
@@ -411,15 +375,11 @@ async def scanlineglitch_1(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -427,9 +387,7 @@ async def scanlineglitch_1(client, message):
             cd = ["glitch_this", "-c", "-s", "-o", edit_img_loc, download_location, "1"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -463,14 +421,13 @@ async def scanlineglitch_1(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def scanlineglitch_2(client, message):
 
@@ -489,15 +446,11 @@ async def scanlineglitch_2(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -505,9 +458,7 @@ async def scanlineglitch_2(client, message):
             cd = ["glitch_this", "-c", "-s", "-o", edit_img_loc, download_location, "2"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -541,14 +492,13 @@ async def scanlineglitch_2(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def scanlineglitch_3(client, message):
 
@@ -567,15 +517,11 @@ async def scanlineglitch_3(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -583,9 +529,7 @@ async def scanlineglitch_3(client, message):
             cd = ["glitch_this", "-c", "-s", "-o", edit_img_loc, download_location, "3"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -619,14 +563,13 @@ async def scanlineglitch_3(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def scanlineglitch_4(client, message):
 
@@ -645,15 +588,11 @@ async def scanlineglitch_4(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -661,9 +600,7 @@ async def scanlineglitch_4(client, message):
             cd = ["glitch_this", "-c", "-s", "-o", edit_img_loc, download_location, "4"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -697,14 +634,13 @@ async def scanlineglitch_4(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:
 
             return
+
 
 async def scanlineglitch_5(client, message):
 
@@ -723,15 +659,11 @@ async def scanlineglitch_5(client, message):
         if not message.reply_to_message.empty:
 
             msg = await message.reply_to_message.reply_text(
-
                 "Downloading image", quote=True
-
             )
 
             await client.download_media(
-
                 message=message.reply_to_message, file_name=download_location
-
             )
 
             await msg.edit("Processing Image...")
@@ -739,9 +671,7 @@ async def scanlineglitch_5(client, message):
             cd = ["glitch_this", "-c", "-s", "-o", edit_img_loc, download_location, "5"]
 
             process = await asyncio.create_subprocess_exec(
-
                 *cd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
-
             )
 
             await process.communicate()
@@ -775,9 +705,7 @@ async def scanlineglitch_5(client, message):
         try:
 
             await message.reply_to_message.reply_text(
-
                 "Something went wrong!", quote=True
-
             )
 
         except Exception:

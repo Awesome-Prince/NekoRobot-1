@@ -21,7 +21,9 @@ async def bright(client, message):
             await msg.edit("Processing Image...")
             image = Image.open(a)
             brightness = ImageEnhance.Brightness(image)
-            edit_img_loc = "./DOWNLOADS" + "/" + userid + "/" + "NekoXRobot_brightness.jpg"
+            edit_img_loc = (
+                "./DOWNLOADS" + "/" + userid + "/" + "NekoXRobot_brightness.jpg"
+            )
             brightness.enhance(1.5).save(edit_img_loc)
             await message.reply_chat_action("upload_photo")
             await message.reply_to_message.reply_photo(edit_img_loc, quote=True)

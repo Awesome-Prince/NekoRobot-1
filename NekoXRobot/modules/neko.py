@@ -1,17 +1,14 @@
 import html
 import random
-import time
 
-from telegram import ParseMode, Update, ChatPermissions
-from telegram.ext import CallbackContext, run_async
+from telegram import ParseMode, Update
 from telegram.error import BadRequest
+from telegram.ext import CallbackContext, run_async
 
 import NekoXRobot.modules.nekostrings as nekostrings
 from NekoXRobot import dispatcher
 from NekoXRobot.modules.disable import DisableAbleCommandHandler
-from NekoXRobot.modules.helper_funcs.chat_status import (is_user_admin)
 from NekoXRobot.modules.helper_funcs.extraction import extract_user
-
 
 
 @run_async
@@ -48,8 +45,6 @@ def nyaa(update: Update, context: CallbackContext):
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-
-
 @run_async
 def meow(update: Update, context: CallbackContext):
     bot = context.bot
@@ -62,7 +57,7 @@ def meow(update: Update, context: CallbackContext):
     user_id = extract_user(message, args)
 
     if user_id:
-        meow_user = bot.get_chat(user_id)
+        bot.get_chat(user_id)
         user1 = curr_user
         user2 = html.escape(neko_user.first_name)
 
@@ -76,12 +71,13 @@ def meow(update: Update, context: CallbackContext):
             temp = random.choice(nekostrings.CATTO_GIFS)
             reply_to.reply_animation(temp)
         except BadRequest:
-            nyaa_type = "Text"
+            pass
 
     if meow_type == "Text":
         temp = random.choice(nekostrings.CATTO_TEXT)
         reply = temp.format(user1=user1, user2=user2)
         reply_to.reply_text(reply, parse_mode=ParseMode.HTML)
+
 
 __help__ = """
  • `/nyaa`*:* Use this to get cute Anime Neko Gifs!
@@ -98,9 +94,5 @@ dispatcher.add_handler(MEOW_HANDLER)
 
 __mod_name__ = "Neko"
 
-__command_list__ = [
-       "nyaa", "meow"
-]
-__handlers__ = [
-       NYAA_HANDLER, MEOW_HANDLER
-]
+__command_list__ = ["nyaa", "meow"]
+__handlers__ = [NYAA_HANDLER, MEOW_HANDLER]

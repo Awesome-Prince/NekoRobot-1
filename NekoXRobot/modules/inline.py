@@ -1,63 +1,39 @@
 import datetime
-
 import re
-
 import time
-
 import urllib.request
-
 from datetime import datetime
-
 from typing import List
 
 import aiohttp
-
 import requests
-
 from bs4 import BeautifulSoup
-
 from countryinfo import CountryInfo
-
 from faker import Faker
-
 from faker.providers import internet
-
 from PyDictionary import PyDictionary
-
 from pyrogram import errors, filters
-
 from pyrogram.types import (
-
     InlineKeyboardButton,
-
     InlineKeyboardMarkup,
-
     InlineQueryResultArticle,
-
     InlineQueryResultPhoto,
-
     InputTextMessageContent,
-
 )
-
 from search_engine_parser import GoogleSearch
-
 from tswift import Song
-
 from youtubesearchpython import VideosSearch
 
+from NekoXRobot import OPENWEATHERMAP_ID, TIME_API_KEY
+from NekoXRobot import pbot as app
 from NekoXRobot.utils.inlinehelper import *
-
 from NekoXRobot.utils.pluginhelpers import fetch, json_prettify
-
-from NekoXRobot import pbot as app, OPENWEATHERMAP_ID, TIME_API_KEY
 
 dictionary = PyDictionary()
 
+
 class AioHttp:
-
     @staticmethod
-
     async def get_json(link):
 
         async with aiohttp.ClientSession() as session, session.get(link) as resp:
@@ -65,7 +41,6 @@ class AioHttp:
             return await resp.json()
 
     @staticmethod
-
     async def get_text(link):
 
         async with aiohttp.ClientSession() as session, session.get(link) as resp:
@@ -73,12 +48,12 @@ class AioHttp:
             return await resp.text()
 
     @staticmethod
-
     async def get_raw(link):
 
         async with aiohttp.ClientSession() as session, session.get(link) as resp:
 
             return await resp.read()
+
 
 __mod_name__ = "Inline Mode"
 
@@ -246,14 +221,14 @@ __HELP__ = """
 
 """
 
-@app.on_message(filters.command("inline"))
 
+@app.on_message(filters.command("inline"))
 async def inline_help(_, message):
 
     await app.send_message(message.chat.id, text=__HELP__)
 
-@app.on_inline_query()
 
+@app.on_inline_query()
 async def inline_query_handler(client, query):
 
     try:
@@ -323,15 +298,10 @@ async def inline_query_handler(client, query):
             if len(text.split()) < 2:
 
                 await client.answer_inline_query(
-
                     query.id,
-
                     results=answers,
-
                     switch_pm_text="Wikipedia | wiki [QUERY]",
-
                     switch_pm_parameter="inline",
-
                 )
 
                 return
@@ -361,17 +331,11 @@ async def inline_query_handler(client, query):
             if search_query == "":
 
                 await client.answer_inline_query(
-
                     query.id,
-
                     results=answers,
-
                     switch_pm_text="Type a YouTube video name...",
-
                     switch_pm_parameter="help",
-
                     cache_time=0,
-
                 )
 
             else:
@@ -381,31 +345,18 @@ async def inline_query_handler(client, query):
                 for result in search.result()["result"]:
 
                     answers.append(
-
                         InlineQueryResultArticle(
-
                             title=result["title"],
-
                             description="{}, {} views.".format(
-
                                 result["duration"], result["viewCount"]["short"]
-
                             ),
-
                             input_message_content=InputTextMessageContent(
-
                                 "https://www.youtube.com/watch?v={}".format(
-
                                     result["id"]
-
                                 )
-
                             ),
-
                             thumb_url=result["thumbnails"][0]["url"],
-
                         )
-
                     )
 
                 try:
@@ -415,15 +366,10 @@ async def inline_query_handler(client, query):
                 except errors.QueryIdInvalid:
 
                     await query.answer(
-
                         results=answers,
-
                         cache_time=0,
-
                         switch_pm_text="Error: Search timed out",
-
                         switch_pm_parameter="",
-
                     )
 
         elif text.split()[0] == "wall":
@@ -471,9 +417,7 @@ async def inline_query_handler(client, query):
             sgname = text.split(None, 1)[1]
 
             PabloEscobar = (
-
                 f"https://an1.com/tags/MOD/?story={sgname}&do=search&subaction=search"
-
             )
 
             r = requests.get(PabloEscobar)
@@ -527,37 +471,21 @@ async def inline_query_handler(client, query):
                 dl_link = leek[5:]
 
                 results.append(
-
                     InlineQueryResultPhoto(
-
                         photo_url=imme,
-
                         title=file_name,
-
                         caption=capt,
-
                         reply_markup=InlineKeyboardMarkup(
-
                             [
-
                                 [InlineKeyboardButton("Download Link", url=lemk)],
-
                                 [
-
                                     InlineKeyboardButton(
-
                                         "Direct Download Link", url=dl_link
-
                                     )
-
                                 ],
-
                             ]
-
                         ),
-
                     )
-
                 )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -583,27 +511,16 @@ async def inline_query_handler(client, query):
                     Subreddit: `{sreddit}`"""
 
             results.append(
-
                 InlineQueryResultPhoto(
-
                     photo_url=image,
-
                     title="Meme Search",
-
                     caption=caption,
-
                     reply_markup=InlineKeyboardMarkup(
-
                         [
-
                             [InlineKeyboardButton("PostLink", url=link)],
-
                         ]
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -619,9 +536,7 @@ async def inline_query_handler(client, query):
             final_name = "+".join(remove_space)
 
             page = requests.get(
-
                 "https://www.imdb.com/find?ref_=nv_sr_fn&q=" + final_name + "&s=all"
-
             )
 
             str(page.status_code)
@@ -633,9 +548,7 @@ async def inline_query_handler(client, query):
             mov_title = odds[0].findNext("td").findNext("td").text
 
             mov_link = (
-
                 "http://www.imdb.com/" + odds[0].findNext("td").findNext("td").a["href"]
-
             )
 
             page1 = requests.get(mov_link)
@@ -737,67 +650,37 @@ async def inline_query_handler(client, query):
             lol = f"Movie - {mov_title}\n Click to see more"
 
             msg = (
-
                 "<a href=" + poster + ">&#8203;</a>"
-
                 "<b>Title : </b><code>"
-
                 + mov_title
-
                 + "</code>\n<code>"
-
                 + mov_details
-
                 + "</code>\n<b>Rating : </b><code>"
-
                 + mov_rating
-
                 + "</code>\n<b>Country : </b><code>"
-
                 + mov_country[0]
-
                 + "</code>\n<b>Language : </b><code>"
-
                 + mov_language[0]
-
                 + "</code>\n<b>Director : </b><code>"
-
                 + director
-
                 + "</code>\n<b>Writer : </b><code>"
-
                 + writer
-
                 + "</code>\n<b>Stars : </b><code>"
-
                 + stars
-
                 + "</code>\n<b>IMDB Url : </b>"
-
                 + mov_link
-
                 + "\n<b>Story Line : </b>"
-
                 + story_line
-
             )
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title="Imdb Search",
-
                     description=lol,
-
                     input_message_content=InputTextMessageContent(
-
                         msg, disable_web_page_preview=False, parse_mode="HTML"
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -863,27 +746,17 @@ async def inline_query_handler(client, query):
                 stats += f'**PTID**:\n`{a["results"]["private_telegram_id"]}`\n'
 
                 results.append(
-
                     InlineQueryResultArticle(
-
                         title="Spam Info",
-
                         description="Search Users spam info",
-
                         input_message_content=InputTextMessageContent(
-
                             stats, disable_web_page_preview=True
-
                         ),
-
                     )
-
                 )
 
                 await client.answer_inline_query(
-
                     query.id, cache_time=0, results=results
-
                 )
 
         elif text.split()[0] == "lyrics":
@@ -915,21 +788,13 @@ async def inline_query_handler(client, query):
                 reply = "lyrics too big, Try using /lyrics"
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title="Song Lyrics",
-
                     description="Click here to see lyrics",
-
                     input_message_content=InputTextMessageContent(
-
                         reply, disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -939,15 +804,10 @@ async def inline_query_handler(client, query):
             if len(text.split()) < 2:
 
                 await client.answer_inline_query(
-
                     query.id,
-
                     results=answers,
-
                     switch_pm_text="Pokemon [text]",
-
                     switch_pm_parameter="pokedex",
-
                 )
 
                 return
@@ -979,21 +839,13 @@ async def inline_query_handler(client, query):
             data = await json_prettify(data)
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title="Covid Info Gathered succesfully",
-
                     description=data,
-
                     input_message_content=InputTextMessageContent(
-
                         data, disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, results=results, cache_time=2)
@@ -1157,11 +1009,8 @@ async def inline_query_handler(client, query):
                 """
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Infomation of {name}",
-
                     description=f"""
 
                 Country Name:- {name}
@@ -1181,15 +1030,10 @@ async def inline_query_handler(client, query):
                 Touch for more info
 
                 """,
-
                     input_message_content=InputTextMessageContent(
-
                         caption, parse_mode="HTML", disable_web_page_preview=True
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, results=results, cache_time=2)
@@ -1221,21 +1065,13 @@ async def inline_query_handler(client, query):
             res = f"<b><u> Fake Information Generated</b></u>\n<b>Name :-</b><code>{name}</code>\n\n<b>Address:-</b><code>{address}</code>\n\n<b>IP ADDRESS:-</b><code>{ip}</code>\n\n<b>credit card:-</b><code>{cc}</code>\n\n<b>Email Id:-</b><code>{email}</code>\n\n<b>Job:-</b><code>{job}</code>\n\n<b>android user agent:-</b><code>{android}</code>\n\n<b>Pc user agent:-</b><code>{pc}</code>"
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title="Fake infomation gathered",
-
                     description="Click here to see them",
-
                     input_message_content=InputTextMessageContent(
-
                         res, parse_mode="HTML", disable_web_page_preview=True
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1261,21 +1097,13 @@ async def inline_query_handler(client, query):
             res = f"<b><u>Match information gathered successful</b></u>\n\n\n<code>{Sed}</code>"
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title="Match information gathered",
-
                     description="Click here to see them",
-
                     input_message_content=InputTextMessageContent(
-
                         res, parse_mode="HTML", disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1299,21 +1127,13 @@ async def inline_query_handler(client, query):
             got = net.replace("'", "")
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"antonyms for {lel}",
-
                     description=got,
-
                     input_message_content=InputTextMessageContent(
-
                         got, disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1337,21 +1157,13 @@ async def inline_query_handler(client, query):
             got = net.replace("'", "")
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"antonyms for {lel}",
-
                     description=got,
-
                     input_message_content=InputTextMessageContent(
-
                         got, disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1375,21 +1187,13 @@ async def inline_query_handler(client, query):
             got = net.replace("'", "")
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Definition for {lel}",
-
                     description=got,
-
                     input_message_content=InputTextMessageContent(
-
                         got, disable_web_page_preview=False
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1405,9 +1209,7 @@ async def inline_query_handler(client, query):
             async with aiohttp.ClientSession() as session:
 
                 response_api_zero = await session.get(
-
                     sample_url.format(input_str, OPENWEATHERMAP_ID)
-
                 )
 
             response_api = await response_api_zero.json()
@@ -1443,55 +1245,32 @@ async def inline_query_handler(client, query):
                 Sunrise 🌤: {} {}
 
                 Sunset 🌝: {} {}""".format(
-
                     input_str,
-
                     response_api["main"]["temp"],
-
                     response_api["main"]["temp_min"],
-
                     response_api["main"]["temp_max"],
-
                     response_api["main"]["humidity"],
-
                     response_api["wind"]["speed"],
-
                     response_api["clouds"]["all"],
-
                     # response_api["main"]["pressure"],
-
                     time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_rise_time)),
-
                     country_code,
-
                     time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(sun_set_time)),
-
                     country_code,
-
                 )
 
                 results.append(
-
                     InlineQueryResultArticle(
-
                         title="Weather Information",
-
                         description=lol,
-
                         input_message_content=InputTextMessageContent(
-
                             lol, disable_web_page_preview=True
-
                         ),
-
                     )
-
                 )
 
                 await client.answer_inline_query(
-
                     query.id, cache_time=0, results=results
-
                 )
 
         elif text.split()[0] == "datetime":
@@ -1517,21 +1296,13 @@ async def inline_query_handler(client, query):
                 result = f"Timezone info not available for <b>{lel}</b>"
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Date & Time info of {lel}",
-
                     description=result,
-
                     input_message_content=InputTextMessageContent(
-
                         result, disable_web_page_preview=False, parse_mode="html"
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1547,9 +1318,7 @@ async def inline_query_handler(client, query):
             final_name = "+".join(remove_space)
 
             page = requests.get(
-
                 "https://play.google.com/store/search?q=" + final_name + "&c=apps"
-
             )
 
             str(page.status_code)
@@ -1559,67 +1328,41 @@ async def inline_query_handler(client, query):
             results = soup.findAll("div", "ZmHEEd")
 
             app_name = (
-
                 results[0]
-
                 .findNext("div", "Vpfmgd")
-
                 .findNext("div", "WsMG1c nnK0zc")
-
                 .text
-
             )
 
             app_dev = (
-
                 results[0].findNext("div", "Vpfmgd").findNext("div", "KoLSrc").text
-
             )
 
             app_dev_link = (
-
                 "https://play.google.com"
-
                 + results[0].findNext("div", "Vpfmgd").findNext("a", "mnKHRc")["href"]
-
             )
 
             app_rating = (
-
                 results[0]
-
                 .findNext("div", "Vpfmgd")
-
                 .findNext("div", "pf5lIe")
-
                 .find("div")["aria-label"]
-
             )
 
             app_link = (
-
                 "https://play.google.com"
-
                 + results[0]
-
                 .findNext("div", "Vpfmgd")
-
                 .findNext("div", "vU6FJ p63iDd")
-
                 .a["href"]
-
             )
 
             app_icon = (
-
                 results[0]
-
                 .findNext("div", "Vpfmgd")
-
                 .findNext("div", "uzcko")
-
                 .img["data-src"]
-
             )
 
             app_details = "<a href='" + app_icon + "'>📲&#8203;</a>"
@@ -1627,61 +1370,37 @@ async def inline_query_handler(client, query):
             app_details += " <b>" + app_name + "</b>"
 
             app_details += (
-
                 "\n\n<code>Developer :</code> <a href='"
-
                 + app_dev_link
-
                 + "'>"
-
                 + app_dev
-
                 + "</a>"
-
             )
 
             app_details += "\n<code>Rating :</code> " + app_rating.replace(
-
                 "Rated ", "⭐ "
-
             ).replace(" out of ", "/").replace(" stars", "", 1).replace(
-
                 " stars", "⭐ "
-
             ).replace(
-
                 "five", "5"
-
             )
 
             app_details += (
-
                 "\n<code>Features :</code> <a href='"
-
                 + app_link
-
                 + "'>View in Play Store</a>"
-
             )
 
             app_details += "\n\n⚊❮❮❮❮ ｢@lkhitech」❯❯❯❯⚊"
 
             rip.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Datails of {app_name}",
-
                     description=app_details,
-
                     input_message_content=InputTextMessageContent(
-
                         app_details, disable_web_page_preview=True, parse_mode="html"
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=rip)
@@ -1717,21 +1436,13 @@ async def inline_query_handler(client, query):
                     pass
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Results for {gett}",
-
                     description=f" Github info of {title}\n  Touch to read",
-
                     input_message_content=InputTextMessageContent(
-
                         result, disable_web_page_preview=True
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1767,21 +1478,13 @@ async def inline_query_handler(client, query):
                     pass
 
             results.append(
-
                 InlineQueryResultArticle(
-
                     title=f"Stack overflow saerch - {title}",
-
                     description=f" Touch to view search results on {title}",
-
                     input_message_content=InputTextMessageContent(
-
                         result, disable_web_page_preview=True
-
                     ),
-
                 )
-
             )
 
             await client.answer_inline_query(query.id, cache_time=0, results=results)
@@ -1790,18 +1493,14 @@ async def inline_query_handler(client, query):
 
         return
 
+
 def generate_time(to_find: str, findtype: List[str]) -> str:
 
     data = requests.get(
-
         f"http://api.timezonedb.com/v2.1/list-time-zone"
-
         f"?key={TIME_API_KEY}"
-
         f"&format=json"
-
         f"&fields=countryCode,countryName,zoneName,gmtOffset,timestamp,dst"
-
     ).json()
 
     for zone in data["zones"]:
@@ -1833,9 +1532,7 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
                 gmt_offset = zone["gmtOffset"]
 
                 timestamp = datetime.datetime.now(
-
                     datetime.timezone.utc
-
                 ) + datetime.timedelta(seconds=gmt_offset)
 
                 current_date = timestamp.strftime(date_fmt)
@@ -1849,23 +1546,14 @@ def generate_time(to_find: str, findtype: List[str]) -> str:
     try:
 
         result = (
-
             f" DATE AND TIME OF COUNTRY"
-
             f"🌍Country :{country_name}\n"
-
             f"⏳Zone Name : {country_zone}\n"
-
             f"🗺Country Code: {country_code}\n"
-
             f"🌞Daylight saving : {daylight_saving}\n"
-
             f"🌅Day : {current_day}\n"
-
             f"⌚Current Time : {current_time}\n"
-
             f"📆Current Date :{current_date}"
-
         )
 
     except BaseException:

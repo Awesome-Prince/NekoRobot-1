@@ -1,5 +1,5 @@
 import os
-import shutil 
+import shutil
 
 import cv2
 import numpy as np

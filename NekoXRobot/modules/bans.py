@@ -6,11 +6,11 @@ from telegram.ext import CallbackContext, CommandHandler, Filters, run_async
 from telegram.utils.helpers import mention_html
 
 from NekoXRobot import (
+    DEMONS,
     DEV_USERS,
+    DRAGONS,
     LOGGER,
     OWNER_ID,
-    DRAGONS,
-    DEMONS,
     TIGERS,
     WOLVES,
     dispatcher,
@@ -18,6 +18,7 @@ from NekoXRobot import (
 from NekoXRobot.modules.disable import DisableAbleCommandHandler
 from NekoXRobot.modules.helper_funcs.chat_status import (
     bot_admin,
+    can_delete,
     can_restrict,
     connection_status,
     is_user_admin,
@@ -25,7 +26,6 @@ from NekoXRobot.modules.helper_funcs.chat_status import (
     is_user_in_chat,
     user_admin,
     user_can_ban,
-    can_delete,
 )
 from NekoXRobot.modules.helper_funcs.extraction import extract_user_and_text
 from NekoXRobot.modules.helper_funcs.string_handling import extract_time
@@ -416,7 +416,9 @@ TEMPBAN_HANDLER = CommandHandler(["tban"], temp_ban)
 PUNCH_HANDLER = CommandHandler(["punch", "kick"], punch)
 UNBAN_HANDLER = CommandHandler("unban", unban)
 ROAR_HANDLER = CommandHandler("roar", selfunban)
-PUNCHME_HANDLER = DisableAbleCommandHandler(["punchme", "kickme"], punchme, filters=Filters.group)
+PUNCHME_HANDLER = DisableAbleCommandHandler(
+    ["punchme", "kickme"], punchme, filters=Filters.group
+)
 
 dispatcher.add_handler(BAN_HANDLER)
 dispatcher.add_handler(TEMPBAN_HANDLER)

@@ -6,6 +6,7 @@ from pyrogram.types import (
     Message,
 )
 
+from NekoXRobot import pbot as Client
 from NekoXRobot.imgedit.edit_1 import (  # pylint:disable=import-error
     black_white,
     box_blur,
@@ -14,8 +15,8 @@ from NekoXRobot.imgedit.edit_1 import (  # pylint:disable=import-error
     mix,
     normal_blur,
 )
-from NekoXRobot.imgedit.edit_2 import (  # pylint:disable=import-error
-    cartoon,
+from NekoXRobot.imgedit.edit_2 import (
+    cartoon,  # pylint:disable=import-error
     circle_with_bg,
     circle_without_bg,
     contrast,
@@ -30,8 +31,8 @@ from NekoXRobot.imgedit.edit_3 import (  # pylint:disable=import-error
     green_border,
     red_border,
 )
-from NekoXRobot.imgedit.edit_4 import (  # pylint:disable=import-error
-    inverted,
+from NekoXRobot.imgedit.edit_4 import (
+    inverted,  # pylint:disable=import-error
     removebg_plain,
     removebg_sticker,
     removebg_white,
@@ -52,7 +53,6 @@ from NekoXRobot.imgedit.edit_5 import (  # pylint:disable=import-error
     scanlineglitch_4,
     scanlineglitch_5,
 )
-from NekoXRobot import pbot as Client
 
 lel = 00000000
 # pylint:disable=import-error

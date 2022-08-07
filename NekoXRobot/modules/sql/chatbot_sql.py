@@ -1,7 +1,8 @@
 import threading
 
-from NekoXRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, String
+
+from NekoXRobot.modules.sql import BASE, SESSION
 
 
 class ChatbotChats(BASE):

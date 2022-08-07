@@ -1,16 +1,11 @@
-import html
 import random
-import time
 
-from telegram import ParseMode, Update, ChatPermissions
+from telegram import Update
 from telegram.ext import CallbackContext, run_async
-from telegram.error import BadRequest
 
 import NekoXRobot.modules.game_strings as game_strings
 from NekoXRobot import dispatcher
 from NekoXRobot.modules.disable import DisableAbleCommandHandler
-from NekoXRobot.modules.helper_funcs.chat_status import (is_user_admin)
-from NekoXRobot.modules.helper_funcs.extraction import extract_user
 
 
 @run_async
@@ -26,6 +21,7 @@ def dare(update: Update, context: CallbackContext):
 @run_async
 def tord(update: Update, context: CallbackContext):
     update.effective_message.reply_text(random.choice(game_strings.TORD_STRINGS))
+
 
 @run_async
 def wyr(update: Update, context: CallbackContext):
@@ -51,9 +47,15 @@ dispatcher.add_handler(WYR_HANDLER)
 
 __mod_name__ = "Games"
 __command_list__ = [
-   "truth", "dare", "tord", "rather",
+    "truth",
+    "dare",
+    "tord",
+    "rather",
 ]
 
 __handlers__ = [
-    TRUTH_HANDLER, DARE_HANDLER, TORD_HANDLER, WYR_HANDLER,
+    TRUTH_HANDLER,
+    DARE_HANDLER,
+    TORD_HANDLER,
+    WYR_HANDLER,
 ]

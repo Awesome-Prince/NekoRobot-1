@@ -1,7 +1,8 @@
 import threading
 
-from NekoXRobot.modules.sql import BASE, SESSION
 from sqlalchemy import Column, String, distinct, func
+
+from NekoXRobot.modules.sql import BASE, SESSION
 
 
 class GroupLogs(BASE):
